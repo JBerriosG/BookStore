@@ -12,11 +12,11 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
-  {path: 'offers', component: OffersComponent },//TODO: Solo para usuarios auth.
+  {path: 'offers', component: OffersComponent, canActivate: [AuthGuard]},//TODO: Solo para usuarios auth.
   {path: 'book/:id', component: DetailsBookComponent },
-  {path: 'admin/list-books', component: ListBookComponent },//TODO: Solo para usuarios auth.
+  {path: 'admin/list-books', component: ListBookComponent, canActivate: [AuthGuard]},//TODO: Solo para usuarios auth.
   {path: 'user/login', component: LoginComponent },
-  {path: 'user/profile', component: ProfileComponent },//TODO: Solo para usuarios auth.
+  {path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard]},//TODO: Solo para usuarios auth.
   {path: 'user/register', component: RegisterComponent },
   {path: '**', component: Page404Component }
 ];
