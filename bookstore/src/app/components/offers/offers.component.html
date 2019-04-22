@@ -1,8 +1,8 @@
-<section id="books">
-  <div class="container">
+<section id="books" class="mt-5" >
+  <div class="container bg-dark">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let book of books">
-        <div class="card_book">
+      <div class="col-xs-12 col-sm-6 col-md-4 mt-3" *ngFor="let book of books">
+        <div class="card_book" *ngIf="book.oferta == 1; else noOffer">
           <div class="card">
             <div class="card-body text-center">
               <p>
@@ -14,7 +14,7 @@
               </p>
               <div class="container-precio-idioma">
                 <p class="badge badge-info">
-                  {{book.precio}}€
+                  {{book.precio}} US$
                 </p>
                 <p class="badge badge-info">
                   {{book.idioma}}
@@ -24,6 +24,7 @@
             </div>
           </div>
         </div>
+        <ng-template #noOffer></ng-template>
       </div>
     </div>
   </div>

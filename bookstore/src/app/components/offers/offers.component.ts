@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from 'src/app/services/data-api.service';
 
 @Component({
   selector: 'app-offers',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OffersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
+  public books = [];
+  public book = '';
+  public category: boolean = false;
 
   ngOnInit() {
+    this.dataApi.getAllBooks().subscribe(books => {
+      console.log('BOOKS', books);
+      this.books = books;
+    });
   }
 
 }
